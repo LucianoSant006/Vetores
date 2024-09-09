@@ -4,49 +4,60 @@ package application;
 import java.util.Locale;
 import java.util.Scanner;
 
+import java.util.Locale;
+import java.util.Scanner;
+
 public class Program {
 
 	public static void main(String[] Args) {
 
 		Locale.setDefault(Locale.US);
 		Scanner sc = new Scanner(System.in);
-		System.out.print("Quantos números você vai digitar? ");
+
+		System.out.print("Quantos pessoas serao digitadas? ");
 		int N = sc.nextInt();
-		double g = 0.0;
-		double[] vect = new double[N];
 
-		for (int i = 0; i < vect.length; i++) {
+		String sum = "" ;
+		int ida = 0;
+		double alt = 0.0;
 
-			System.out.print("Digite um numero: ");
+		double[]  vect = new double[N];
+		String[]  vectN = new String[N];
+		int[] vectI = new int[N];
+
+		for(int i  = 1; i < vect.length;i++) {
+
+			System.out.println("Dadosda da %d pessoa"+i);
+			System.out.print("Nome: ");
+			vectN[i] = sc.next();
+			System.out.print("Idade: ");
+			vectI[i] = sc.nextInt();
+			System.out.print("Altura: ");
 			vect[i] = sc.nextDouble();
-			g += vect[i];
+
+
 
 		}
 
-		double sum = 0.0;
-		double soma = 0.0;
-
-		for (int i = 0; i < vect.length; i++) {
-
-			sum += vect[i];
-			soma += vect[i];
-
-		}
-		System.out.print("VALORES = ");
-		for (int i = 0; i < vect.length; i++) {
+		double porcen = 0.0;
+		for(int i =0; i <  vect.length ;i++) {
 
 
-			System.out.printf("%.2f ",vect[i]);
+				if(vectI[i] <16) {
 
-		}
+				sum += vectN[i];
+				alt += vect[i];
+				ida += vectI[i];
 
-		double avg = soma/ N;
+				}
+			}
 
-		System.out.println();
-		System.out.printf("Soma =  %.2f %n" , soma);
-		System.out.printf("Média =  %.2f %n" , avg);
-
+		System.out.println(sum);
+		System.out.println(alt);
+		System.out.println(ida);
 
 		sc.close();
+		}
+
+
 	}
-}
