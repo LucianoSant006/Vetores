@@ -1,63 +1,39 @@
-package application;
+package Vetores.Exerc04_Pares;
 
-
-import java.util.Locale;
-import java.util.Scanner;
-
-import java.util.Locale;
 import java.util.Scanner;
 
 public class Program {
 
-	public static void main(String[] Args) {
+    
 
-		Locale.setDefault(Locale.US);
+	public static void main(String[] args) {
+
 		Scanner sc = new Scanner(System.in);
+		
+		int N, qtd;
 
-		System.out.print("Quantos pessoas serao digitadas? ");
-		int N = sc.nextInt();
+	    System.out.print("Quantos numeros voce vai digitar? ");
+	    N = sc.nextInt();
 
-		String sum = "" ;
-		int ida = 0;
-		double alt = 0.0;
+	    int[] vect = new int[N];
 
-		double[]  vect = new double[N];
-		String[]  vectN = new String[N];
-		int[] vectI = new int[N];
+	    for (int i=0; i<vect.length; i++) {
+	    	System.out.print("Digite um numero: ");
+	        vect[i] = sc.nextInt();
+	    }
 
-		for(int i  = 1; i < vect.length;i++) {
+	    System.out.println("\nNúmeros Pares:");
 
-			System.out.println("Dadosda da %d pessoa"+i);
-			System.out.print("Nome: ");
-			vectN[i] = sc.next();
-			System.out.print("Idade: ");
-			vectI[i] = sc.nextInt();
-			System.out.print("Altura: ");
-			vect[i] = sc.nextDouble();
+		qtd = 0;
+	    for (int i=0; i<vect.length; i++) {
+	        if (vect[i] % 2 == 0) {
+	        	System.out.printf("%d  ", vect[i]);
+	            qtd++;
+	        }
+	    }
 
-
-
-		}
-
-		double porcen = 0.0;
-		for(int i =0; i <  vect.length ;i++) {
-
-
-				if(vectI[i] <16) {
-
-				sum += vectN[i];
-				alt += vect[i];
-				ida += vectI[i];
-
-				}
-			}
-
-		System.out.println(sum);
-		System.out.println(alt);
-		System.out.println(ida);
+	    System.out.printf("\n\nQuantidade De Pares : %d\n", qtd);
 
 		sc.close();
-		}
-
-
 	}
+}
