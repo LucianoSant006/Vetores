@@ -1,38 +1,48 @@
 package application;
 
+import java.util.Locale;
 import java.util.Scanner;
+
 
 public class Program {
 
-    
 
 	public static void main(String[] args) {
 
+
+		Locale.setDefault(Locale.US);
 		Scanner sc = new Scanner(System.in);
 		
-		int N, qtd;
+		int n, posicimaior;
 
-	    System.out.print("Quantos numeros voce vai digitar? ");
-	    N = sc.nextInt();
+	    double maior;
 
-	    int[] vect = new int[N];
+	    System.out.print("Quantos números voce vai digitar? ");
+	    n = sc.nextInt();
 
-	    for (int i=0; i<vect.length; i++) {
+	    double[] vect = new double[n];
+
+	    for (int i=0; i< vect.length; i++) {
 	    	System.out.print("Digite um numero: ");
-	        vect[i] = sc.nextInt();
+	        vect[i] = sc.nextDouble();
 	    }
 
-	    System.out.println("\nNúmeros Pares:");
+	    maior = vect[0];
+	    posicimaior = 0;
 
-		qtd = 0;
-	    for (int i=0; i<vect.length; i++) {
-	        if (vect[i] % 2 == 0) {
-	        	System.out.printf("%d  ", vect[i]);
-	            qtd++;
+	    for (int i=1; i< vect.length; i++) {
+            
+	        if (vect[i] > maior) {
+
+	            maior = vect[i];
+	            posicimaior = i;
+
 	        }
 	    }
 
-	    System.out.printf("\n\nQuantidade De Pares : %d\n", qtd);
+		
+	    System.out.printf("Maior Valor = %.1f\n", maior);
+	    System.out.printf("Posição maior = %d\n", posicimaior);
 
 		sc.close();
 	}
