@@ -1,4 +1,4 @@
-package Vetores.Exerc04_Pares;
+package application;
 
 import java.util.Scanner;
 
